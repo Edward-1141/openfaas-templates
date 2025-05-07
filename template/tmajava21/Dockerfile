@@ -1,4 +1,4 @@
-FROM maven:3.9.9-eclipse-temurin-21 as builder
+FROM edward1141/1.0-tma-maven-21 as builder
 
 WORKDIR /home/app
 COPY . /home/app

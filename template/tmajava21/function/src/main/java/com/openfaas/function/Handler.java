@@ -1,16 +1,18 @@
 package com.openfaas.function;
 
-import com.openfaas.model.IResponse;
-import com.openfaas.model.IRequest;
-import com.openfaas.model.Response;
-import com.shared.function.TestHepler;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.openfaas.model.IResponse;
+import com.openfaas.model.IRequest;
+import com.openfaas.model.Response;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+// import com.shared.function.*; // shared lib
+
 public class Handler extends com.openfaas.model.AbstractHandler {
 
-    private final TestHepler testHepler = new TestHepler();
+    // private final TestHepler testHepler = new TestHepler(); // shared lib
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public IResponse Handle(IRequest req) {
@@ -19,7 +21,7 @@ public class Handler extends com.openfaas.model.AbstractHandler {
         // Create a Map to hold the response data
         Map<String, Object> responseMap = new HashMap<>();
         responseMap.put("message", "Hello from OpenFaaS Java Function!");
-        responseMap.put("testString", testHepler.getTestString());
+        // responseMap.put("testString", testHepler.getTestString()); // shared lib
         responseMap.put("timestamp", System.currentTimeMillis());
 
         // Add request path to response if any
