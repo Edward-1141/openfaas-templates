@@ -4,7 +4,7 @@ WORKDIR /home/app
 COPY . /home/app
 
 # build shared lib
-RUN cd function/shared-lib && mvn clean install 
+RUN cd function/shared-lib && mvn clean install -DskipTests
 # build function
 RUN cd function && mvn clean package -U -DskipTests 
 
